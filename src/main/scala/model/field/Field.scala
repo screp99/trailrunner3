@@ -1,9 +1,9 @@
 package model.field
 
 class Field(var value: Int,
-  val fieldType: String,
-  var fog: Boolean,
-  var isPlayerOnField: Boolean) extends IField():
+  val fieldType: String = "Ground",
+  var fog: Boolean = false,
+  var isPlayerOnField: Boolean = false) extends IField():
 
   def isBroken:Boolean = value == 0
 
@@ -25,18 +25,13 @@ class Field(var value: Int,
   
 
   def earthquake: Field = 
-    if value > 0 && value < 9 then
-        this.value = 0
+    if value > 0 && value < 9 then this.value = 0
     this
   
 
   override def toString: String = 
-    if value == -99 then
-        return " |X| "
-    else if value == -10 || value == -20 then
-        return " |T| "
-    else if this.isPlayerOnField then
-        return " |P| "
-    else
-        " |" + value.toString + "| "
+    if value == -99 then " |X| "
+    else if value == -10 || value == -20 then " |T| "
+    else if this.isPlayerOnField then " |P| "
+    else " |" + value.toString + "| "
   

@@ -30,10 +30,11 @@ class Level(val dungeon: Array[Array[Field]],
     false
   
 
-  def fillNullValues() : Unit = 
+  def fillNullValues() : Boolean = 
     for i <- 0 until 10; j <- 0 until 10 do 
       val dungeonField = Option(dungeon(i)(j))
       dungeonField.getOrElse(dungeon(i)(j) = Field(-99, "Wall", false, false))
+    true
   
 
   def standsPlayerInFrontOfOpenDoor(): Level = 

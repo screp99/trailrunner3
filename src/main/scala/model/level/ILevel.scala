@@ -9,5 +9,5 @@ trait ILevel(val size: Int):
   def standsPlayerInFrontOfOpenDoor(): ILevel
   def closeDoor(): ILevel
   def playerStandsOnDoor(): Boolean
-  def fillNullValues() : Unit
+  def fillNullValues() : Boolean
   def toString: String
